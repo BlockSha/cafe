@@ -2,7 +2,9 @@ package com.example.cafe;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,14 +13,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     // Attributs
 
     private Button addCoffeeButton, removeCoffeeButton, orderButton;
     private TextView quantityTextView, priceTextView;
+    private Spinner spinnerOrders;
 
     private CoffeeOrder coffeeOrder;
+    private ArrayList<CoffeeOrder> coffeeOrders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
         quantityTextView = findViewById(R.id.text_view_quantity);
         priceTextView = findViewById(R.id.text_view_result);
-
+        spinnerOrders = findViewById(R.id.spinner_orders);
         coffeeOrder = new CoffeeOrder(10); // Prix du café
+        coffeeOrders = new ArrayList<>();
+
+        ArrayList<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, coffeeOrders);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerOrders.setAdapter(adapter);
+
+
+
 
         addCoffeeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,12 +76,14 @@ public class MainActivity extends AppCompatActivity {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logique pour passer la commande
-                // Par exemple, afficher un message de confirmation
                 double totalPrice = coffeeOrder.CalculOrderAmount();
                 String message = "Paiement Accepté";
                 priceTextView.setText(message);
             }
         });
+
+
+
+
     }
 }

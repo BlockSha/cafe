@@ -46,10 +46,20 @@ public class MainActivity extends AppCompatActivity {
                 coffeeOrder.addCoffee();
                 quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
             }
-        removeCoffeeButton.setOnClickListener(new View.OnClickListener()
-
-            {
-            })
+        });
+        removeCoffeeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                coffeeOrder.RemoveCoffee();
+                quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
+            }
+        });
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double totalPrice = coffeeOrder.CalculOrderAmount();
+                priceTextView.setText(String.valueOf(totalPrice));
+            }
         });
     }
 }

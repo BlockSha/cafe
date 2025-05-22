@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 coffeeOrder.addCoffee();
                 quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
             }
+        removeCoffeeButton.setOnClickListener(new View.OnClickListener()
+
+            {
+            })
         });
     }
 }

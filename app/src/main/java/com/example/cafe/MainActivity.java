@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 coffeeOrder.addCoffee();
                 quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
+                double totalPrice = coffeeOrder.CalculOrderAmount();
+                priceTextView.setText(String.valueOf(totalPrice));
             }
         });
         removeCoffeeButton.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +54,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 coffeeOrder.RemoveCoffee();
                 quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
+                double totalPrice = coffeeOrder.CalculOrderAmount();
+                priceTextView.setText(String.valueOf(totalPrice));
             }
         });
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Logique pour passer la commande
+                // Par exemple, afficher un message de confirmation
                 double totalPrice = coffeeOrder.CalculOrderAmount();
-                priceTextView.setText(String.valueOf(totalPrice));
+                String message = "Paiement Accepté";
+                priceTextView.setText(message);
             }
         });
     }

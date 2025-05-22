@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 coffeeOrder.addCoffee();
+                quantityTextView.setText(String.valueOf(coffeeOrder.getQuantity()));
             }
         });
     }

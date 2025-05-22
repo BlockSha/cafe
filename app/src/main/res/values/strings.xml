@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Cafe</string>
+    <string name="text_quantity">QUANTITE</string>
+    <string name="text_minus">-</string>
+    <string name="text_plus">+</string>
+    <string name="text_price">PRIX</string>
+    <string name="text_total">TOTAL :</string>
+    <string name="text_commander">COMMANDER</string>
+</resources>
